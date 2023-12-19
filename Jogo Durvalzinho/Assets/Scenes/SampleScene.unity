@@ -238,7 +238,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00046160817, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -249,7 +249,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0009232, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &1512229821
 SpriteRenderer:
@@ -311,8 +311,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512229819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0653, y: -5.13, z: 0}
-  m_LocalScale: {x: 21.36872, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0653, y: -5.1053, z: 0}
+  m_LocalScale: {x: 21.36872, y: 1.0493282, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -503,8 +503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  speed: 0
-  jumpForce: 0
+  speed: 5
+  jumpForce: 8
   Brow: {fileID: 0}
   firePoint: {fileID: 0}
   isJumping: 0
@@ -603,6 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2124016488}
+  - component: {fileID: 2124016489}
   m_Layer: 0
   m_Name: GameControler
   m_TagString: Untagged
@@ -625,3 +626,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2124016489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124016487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5373012b52856449809cf42f3a13e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  score: 0
+  scoreText: {fileID: 0}
+  totalScore: 0
+  pauseObj: {fileID: 0}
+  gameOverObj: {fileID: 0}

@@ -45,7 +45,7 @@ public class GameControler : MonoBehaviour
 
     public void UpdateLives(int value)
     {
-        healthText.text = "x" + value.ToString();
+       healthText.text = "x" + value.ToString();
     }
 
     public void PauseGame()
