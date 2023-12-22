@@ -58,7 +58,7 @@ public class player : MonoBehaviour
         {
             if(!isJumping)
             {
-                anim.SetInteger("transition", 0);
+                anim.SetInteger("transition", 1);
             }
             
             transform.eulerAngles = new Vector3(0, 180, 0);
