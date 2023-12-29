@@ -27,7 +27,7 @@ public class player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         //atkCollider.SetActive(false);
-        GameControler.instance.UpdateLives(health);
+  //      GameControler.instance.UpdateLives(health);
         respawnPoint = transform.position;
 
     }
@@ -37,7 +37,7 @@ public class player : MonoBehaviour
     {
         Move();
         Jump();
-        BrowFire();
+     
     }
 
      void FixedUpdate()
@@ -69,14 +69,14 @@ public class player : MonoBehaviour
         {
             if(!isJumping)
             {
-                anim.SetInteger("transition", 0);
+                anim.SetInteger("transition", 1);
             } 
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
 
         else if (moviment == 0 && !isJumping && !isFire)
         {
-            anim.SetInteger("transition", 1);
+            anim.SetInteger("transition", 0);
         }
 
     }
@@ -96,73 +96,24 @@ public class player : MonoBehaviour
             {
                 if (doubleJump)
                 {
-                    anim.SetInteger("transition", 2);
+                    anim.Play("Idle");
+                    anim.Play("jump");
+                   // anim.SetInteger("transition", 2);
                     rig.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                     doubleJump = false;
                 }
             }
         }
     }
-
-    void BrowFire()
+    
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        StartCoroutine("Fire");
-    }
-
-    IEnumerator Fire()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            isFire = true;
-            anim.SetInteger("transition", 3);
-            atkCollider.SetActive(true);
-            yield return new WaitForSeconds(0.2f);
-            atkCollider.SetActive(false);
-            isFire = false;
-            anim.SetInteger("transition", 0);
-        }
-        
-    }
-
-    public void Damage(int dmg)
-    {
-        health -= dmg;
-        GameControler.instance.UpdateLives(health);
-        anim.SetTrigger("hit");
-        if (health <= 0)
-        {
-            if (transform.rotation.y == 0)
-            {
-                transform.position += new Vector3(-0.5f, 0, 0);
-            }
-
-            if (transform.rotation.y == 180)
-            {
-                transform.position += new Vector3(0.5f, 0, 0);
-            }
-            //chamar game over
-            GameControler.instance.GameOver();
-        }
-    }
-
-    public void IncreaseLife(int value)
-    {
-        health += value;
-        GameControler.instance.UpdateLives(health);
-
-    }
-
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (coll.gameObject.layer == 8)
+        Debug.Log("colisao");
+        if (col.gameObject.layer == 8)
         {
             isJumping = false;
 
         }
-        if (coll.gameObject.layer == 9)
-        {
-            GameControler.instance.GameOver();
-
-        }
+        
     }
 }
