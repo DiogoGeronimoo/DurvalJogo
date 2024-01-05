@@ -16,19 +16,6 @@ public class ataquePlayer : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        atacando = Input.GetKeyDown("Z");
-
-        if (atacando == true)
-        {
-            Ataque();
-
-        }
-
-    }
-
     void Ataque()
     {
         anim.SetTrigger("Attack");
